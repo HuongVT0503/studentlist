@@ -9,11 +9,9 @@
 package com.example.myapplication
 
 import android.os.Bundle
-import android.widget.ListView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import androidx.recyclerview.widget.RecyclerView
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,9 +19,9 @@ class MainActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
 
-        val students = mutableListOf<studentmodel>()
+        val students = mutableListOf<`student-model`>()
         repeat(28) {
-            students.add(studentmodel(
+            students.add(`student-model`(
                 hoten = "ten sv $it",
                 mssv = "MSSV $it"
             ))
@@ -31,7 +29,7 @@ class MainActivity : AppCompatActivity() {
 
         val adapter = studentAdapter(students)
 
-        val listStudents = findViewById<ListView>(R.id.student_list)
+        val listStudents = findViewById<RecyclerView>(R.id.student_list)
         listStudents.adapter = adapter
 
 
